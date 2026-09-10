@@ -9,90 +9,120 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0A0E1C;
-  --gold:#B8974A;
-  --gold-bright:#C9A961;
-  --gold-soft:#F7F2E4;
-  --gold-line:rgba(184,151,74,.35);
-  --page:#EDEDF0;
-  --card:#FFFFFF;
-  --ink:#15161C;
-  --body:#3E4049;
-  --muted:#71737E;
-  --line:rgba(21,22,28,.10);
+  --navy:#0A0E1C; --gold:#B8974A; --gold-bright:#C9A961; --gold-soft:#F7F2E4;
+  --gold-line:rgba(184,151,74,.35); --page:#EDEDF0; --card:#FFFFFF;
+  --ink:#15161C; --body:#3E4049; --muted:#71737E; --line:rgba(21,22,28,.10); --ok:#3E8E63;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){ --page:#05070F; }
-}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --page:#05070F; } }
 :root[data-theme="dark"]{ --page:#05070F; }
 
-*{box-sizing:border-box}
-html,body{margin:0}
-body{
-  background:var(--page);
-  font-family:Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--body);
-  line-height:1.62;
-  -webkit-font-smoothing:antialiased;
-  padding:28px 16px 56px;
-}
-.card{
-  max-width:660px;margin:0 auto;background:var(--card);
-  border-radius:14px;overflow:hidden;
-  box-shadow:0 18px 60px rgba(10,14,28,.16);
-}
+*{box-sizing:border-box} html,body{margin:0}
+body{background:var(--page);font-family:Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--body);line-height:1.62;-webkit-font-smoothing:antialiased;padding:28px 16px 56px}
+.card{max-width:660px;margin:0 auto;background:var(--card);border-radius:14px;overflow:hidden;
+  box-shadow:0 18px 60px rgba(10,14,28,.16)}
 
-/* ---------- header ---------- */
 .head{background:var(--navy);padding:34px 24px 30px;text-align:center}
 .mark{display:inline-flex;align-items:center;gap:11px}
 .mark svg{width:30px;height:30px;flex:none}
 .mark .word{font-size:26px;font-weight:700;color:var(--gold-bright);letter-spacing:-.01em}
-.head .strap{margin:14px 0 0;font-size:10.5px;letter-spacing:.30em;text-transform:uppercase;color:rgba(201,169,97,.72);font-weight:600}
+.head .strap{margin:14px 0 0;font-size:10.5px;letter-spacing:.30em;text-transform:uppercase;
+  color:rgba(201,169,97,.72);font-weight:600}
 
-/* ---------- body ---------- */
 .inner{padding:40px 44px 36px}
-@media(max-width:560px){ .inner{padding:30px 24px 28px} body{padding:14px 10px 40px} }
-
+@media(max-width:560px){.inner{padding:30px 24px 28px} body{padding:14px 10px 40px}}
 .hi{font-size:19px;font-weight:700;color:var(--ink);margin:0 0 22px}
 p{margin:0 0 18px;font-size:15px}
-.lead{color:var(--body)}
 
 .step{border-top:1px solid var(--line);padding-top:26px;margin-top:8px}
 .step:first-of-type{margin-top:26px}
 .klabel{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:0 0 10px}
 .step h2{font-size:19px;font-weight:700;color:var(--ink);margin:0 0 12px;letter-spacing:-.01em}
 
-.btn{
-  display:inline-block;background:linear-gradient(180deg,var(--gold-bright),var(--gold));
-  color:#1A1305;text-decoration:none;font-weight:700;font-size:14.5px;
-  padding:15px 30px;border-radius:999px;margin:6px 0 26px;
-  transition:filter .18s, transform .12s;
-}
+.btn{display:inline-block;background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#1A1305;
+  text-decoration:none;font-weight:700;font-size:14.5px;padding:15px 30px;border-radius:999px;margin:6px 0 26px;
+  border:none;font-family:inherit;cursor:pointer;transition:filter .18s,transform .12s}
 .btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
 
-.note{
-  background:var(--gold-soft);border:1px solid var(--gold-line);
-  border-radius:10px;padding:20px 22px;margin:6px 0 26px;font-size:14px;
-}
-.note p{margin:0;font-size:14px}
-.note b{color:var(--ink);font-weight:700}
+.doneflag{display:none;align-items:center;gap:10px;background:rgba(62,142,99,.09);
+  border:1px solid rgba(62,142,99,.30);border-radius:10px;padding:13px 16px;margin:6px 0 26px;
+  font-size:13.5px;color:var(--ok);font-weight:600}
+.doneflag.on{display:flex}
+.doneflag .t{width:20px;height:20px;border-radius:50%;background:var(--ok);color:#fff;font-size:12px;
+  display:flex;align-items:center;justify-content:center;flex:none}
+.doneflag .lnk{margin-left:auto;font-size:12.5px;color:var(--muted);text-decoration:underline;
+  cursor:pointer;font-weight:500;background:none;border:none;font-family:inherit}
+
+.note{background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:10px;
+  padding:20px 22px;margin:6px 0 26px;font-size:14px}
+.note p{margin:0;font-size:14px} .note b{color:var(--ink);font-weight:700}
 
 .sign{border-top:1px solid var(--line);padding-top:24px;margin-top:6px}
 .sign .who{font-size:15.5px;font-weight:700;color:var(--ink)}
 .sign .role{font-size:13px;color:var(--muted);line-height:1.5}
+.foot{background:var(--navy);text-align:center;padding:20px 22px;font-size:9.5px;letter-spacing:.20em;
+  text-transform:uppercase;color:rgba(244,243,248,.42);line-height:1.8}
 
-/* ---------- footer ---------- */
-.foot{
-  background:var(--navy);text-align:center;padding:20px 22px;
-  font-size:9.5px;letter-spacing:.20em;text-transform:uppercase;
-  color:rgba(244,243,248,.42);line-height:1.8;
-}
+/* ===================== LECTOR DEL NDA ===================== */
+.reader{position:fixed;inset:0;z-index:50;background:#565B6B;display:none;flex-direction:column}
+.reader.on{display:flex}
+.rbar{background:var(--navy);display:flex;align-items:center;gap:14px;padding:13px 20px;flex:none;
+  border-bottom:1px solid rgba(201,169,97,.24)}
+.rbar .ttl{flex:1;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-bright);
+  font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rbar .x{background:none;border:none;color:#B9B8C6;font-size:26px;line-height:1;cursor:pointer;padding:0 4px;font-family:inherit}
+.rbar .x:hover{color:#fff}
+.reader iframe{flex:1;width:100%;border:none;background:#565B6B}
+.rfoot{background:rgba(10,14,28,.96);border-top:1px solid rgba(201,169,97,.30);padding:12px 20px;
+  display:flex;align-items:center;gap:12px;flex:none}
+.rfoot .msg{flex:1;font-size:12.5px;color:#9E9DAE;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rfoot .msg.ok{color:#7CD3A4}
+.ghost{background:transparent;color:#DCDBE6;border:1px solid rgba(244,243,248,.22);border-radius:999px;
+  padding:11px 20px;font-family:inherit;font-size:13.5px;cursor:pointer;white-space:nowrap}
+.ghost:hover{border-color:var(--gold-bright)}
+.gold{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#1A1305;border:none;border-radius:999px;
+  padding:12px 26px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+.gold:hover{filter:brightness(1.06)}
+
+/* ===================== PANEL DE FIRMA ===================== */
+.ov{position:fixed;inset:0;z-index:60;background:rgba(6,9,18,.74);backdrop-filter:blur(4px);
+  display:none;align-items:flex-start;justify-content:center;padding:24px 14px;overflow:auto}
+.ov.on{display:flex}
+.sheet{background:#fff;border-radius:16px;max-width:560px;width:100%;padding:30px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.sheet h3{margin:0 0 6px;font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.sheet .sub{margin:0 0 22px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.fgrid .wide{grid-column:1/-1}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}.sheet{padding:24px 20px}}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.fld input{border:1px solid rgba(21,22,28,.18);border-radius:9px;padding:11px 12px;font-family:inherit;
+  font-size:14px;color:var(--ink);background:#fff;width:100%}
+.fld input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,151,74,.16)}
+.fld input.bad{border-color:#C2544B;box-shadow:0 0 0 3px rgba(194,84,75,.14)}
+.padwrap{margin-top:20px}
+.padhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.padhead .l{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.padhead .clr{font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;
+  text-decoration:underline;font-family:inherit}
+#pad{width:100%;height:150px;border:1px dashed rgba(21,22,28,.26);border-radius:10px;background:#FCFBF8;
+  touch-action:none;display:block;cursor:crosshair}
+#pad.bad{border-color:#C2544B}
+.padhint{font-size:11.5px;color:#93919E;margin:7px 0 0;text-align:center}
+.agree{display:flex;gap:10px;align-items:flex-start;margin-top:20px;font-size:13px;color:var(--body);line-height:1.5}
+.agree input{margin-top:3px;width:17px;height:17px;accent-color:var(--gold);flex:none}
+.go{margin-top:22px;display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.err{color:#C2544B;font-size:12.5px;margin:14px 0 0;display:none}
+.err.on{display:block}
+.done{text-align:center;padding:16px 0 4px}
+.done .tick{width:56px;height:56px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);
+  font-size:26px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.done p{font-size:13.5px;color:var(--muted);margin:0 auto 22px;max-width:40ch}
 </style>
 </head>
 <body>
 
 <div class="card">
-
   <div class="head">
     <div class="mark">
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -105,12 +135,9 @@ p{margin:0 0 18px;font-size:15px}
   </div>
 
   <div class="inner">
-
     <p class="hi" id="greeting">Welcome,</p>
-
-    <p class="lead">Your seat at the table is confirmed, and it is a pleasure to have you in the room.</p>
-
-    <p class="lead">Before we meet in Madrid on 24 to 26 September, there are two things to take care of.
+    <p>Your seat at the table is confirmed, and it is a pleasure to have you in the room.</p>
+    <p>Before we meet in Madrid on 24 to 26 September, there are two things to take care of.
       Neither takes long, and both exist for the same reason: to make those two days genuinely worth your time.</p>
 
     <div class="step">
@@ -119,7 +146,11 @@ p{margin:0 0 18px;font-size:15px}
       <p>What sets this room apart is that people speak plainly about their real numbers. That only happens
         when everyone knows those figures stay between us. The agreement protects you exactly as much as it
         protects everyone else. Thirty seconds from your phone, nothing to install.</p>
-      <a class="btn" id="ndaBtn" href="#">Review and sign &rarr;</a>
+      <button class="btn" id="openNda" type="button">Review and sign &rarr;</button>
+      <div class="doneflag" id="ndaDone">
+        <span class="t">&#10003;</span><span id="ndaDoneTxt">Signed</span>
+        <button class="lnk" id="reopenNda" type="button">View document</button>
+      </div>
     </div>
 
     <div class="step">
@@ -129,12 +160,11 @@ p{margin:0 0 18px;font-size:15px}
         figures instead of opinions. It takes about five minutes. Your answers save as you go, so you can
         pause and come back whenever it suits you. Everything is aggregated and anonymised, and you get the
         full picture back: you will see exactly where your practice stands among peers at your level.</p>
-      <a class="btn" id="benchBtn" href="benchmark.html">Complete my benchmark &rarr;</a>
+      <a class="btn" id="benchBtn" href="#">Complete my benchmark &rarr;</a>
     </div>
 
     <div class="step">
       <p>Once we have both, we will send you the hotel page, your arrival details and the final programme.</p>
-
       <div class="note">
         <p>One thing worth knowing about the hotel. Late September is a busy stretch in Madrid, so we reserved
           a block of rooms at the Meli&aacute; Serrano well in advance, at a rate we negotiated for the group.
@@ -142,7 +172,6 @@ p{margin:0 0 18px;font-size:15px}
           nights and confirm. Nothing to hunt for, nothing to negotiate, and no risk of the city filling up
           around you.</p>
       </div>
-
       <p>If anything at all comes up, write to me directly. I am here for whatever you need.</p>
       <p>Looking forward to Madrid.</p>
     </div>
@@ -151,41 +180,214 @@ p{margin:0 0 18px;font-size:15px}
       <div class="who">Miguel &Aacute;ngel</div>
       <div class="role">OrthoCEO Mastermind<br>On behalf of Dr. Javi Lozano</div>
     </div>
-
   </div>
 
   <div class="foot">
     OrthoCEO Mastermind &middot; Madrid &middot; 24 to 26 September 2026<br>Hotel Meli&aacute; Serrano
   </div>
+</div>
 
+<!-- ===== lector del NDA ===== -->
+<div class="reader" id="reader">
+  <div class="rbar">
+    <span class="ttl">Mutual Confidentiality Agreement</span>
+    <button class="x" id="closeReader" type="button" aria-label="Close">&times;</button>
+  </div>
+  <iframe id="ndaFrame" title="Mutual Confidentiality Agreement"></iframe>
+  <div class="rfoot">
+    <span class="msg" id="rMsg">Read the agreement, then sign</span>
+    <button class="ghost" id="printNda" type="button">Print</button>
+    <button class="gold" id="signOpen" type="button">Sign the agreement</button>
+  </div>
+</div>
+
+<!-- ===== panel de firma ===== -->
+<div class="ov" id="ov">
+  <div class="sheet">
+    <div id="formStep">
+      <h3>Sign the agreement</h3>
+      <p class="sub">Your details go into the agreement, and your signature is applied to it.
+        You get a signed copy straight away.</p>
+      <div class="fgrid">
+        <div class="fld wide"><label>Full name</label><input id="i_name" autocomplete="name"></div>
+        <div class="fld wide"><label>Practice / company</label><input id="i_practice" autocomplete="organization"></div>
+        <div class="fld wide"><label>Registered address</label><input id="i_address" autocomplete="street-address"></div>
+        <div class="fld"><label>Tax ID / passport</label><input id="i_taxid"></div>
+        <div class="fld"><label>Email</label><input id="i_email" type="email" autocomplete="email"></div>
+      </div>
+      <div class="padwrap">
+        <div class="padhead"><span class="l">Your signature</span>
+          <button class="clr" id="clrBtn" type="button">Clear</button></div>
+        <canvas id="pad"></canvas>
+        <p class="padhint">Draw with your finger or mouse</p>
+      </div>
+      <label class="agree"><input type="checkbox" id="i_agree">
+        <span>I have read the Mutual Confidentiality Agreement and I agree to be bound by it.
+          I accept that this electronic signature has the same validity as a handwritten one.</span></label>
+      <p class="err" id="err"></p>
+      <div class="go">
+        <button class="ghost" id="cancelBtn" type="button" style="color:#3E4049;border-color:rgba(21,22,28,.20)">Cancel</button>
+        <button class="gold" id="signBtn" type="button">Sign &amp; send &rarr;</button>
+      </div>
+    </div>
+    <div id="doneStep" style="display:none">
+      <div class="done">
+        <div class="tick">&#10003;</div>
+        <h3>Signed. Thank you.</h3>
+        <p id="doneMsg">Your signature has been applied to the agreement and a copy has been sent to us.</p>
+        <div class="go" style="justify-content:center">
+          <button class="ghost" id="closeDone" type="button" style="color:#3E4049;border-color:rgba(21,22,28,.20)">See the document</button>
+          <button class="gold" id="dlBtn" type="button">Download my copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-/* ==== LINKS: sustituir por las URLs reales ==== */
-var NDA_URL       = 'https://orthoceo.info/nda';
-var BENCHMARK_URL = 'benchmark.html';   // formulario adjunto (mismo directorio)
-/* ============================================= */
+/* ===== URLs y endpoint: sustituir por los reales ===== */
+var BENCHMARK_URL = 'benchmark.html';
+var SIGN_ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+/* ==================================================== */
+
+var NDA_HTML = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<title>OrthoCEO Mastermind 2026 \u2014 Mutual Confidentiality Agreement</title>\n<link href=\"https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap\" rel=\"stylesheet\" />\n<style>\n  :root{\n    --navy:#0B1020; --card:#0F1428; --hairline:#1F2238;\n    --gold:#C9A961; --gold-bright:#D4B872;\n    --white:#FFFFFF; --dust:#9B9AA8; --meta:#6E6D7E;\n    --ink:#141726; --body-ink:#2E3244; --rule:#D8D5CC;\n  }\n  *{box-sizing:border-box}\n  html,body{margin:0;padding:0}\n  body{font-family:Montserrat,Arial,sans-serif;color:var(--body-ink);background:#565B6B}\n\n  .page{\n    width:210mm;height:297mm;margin:0 auto;background:#fff;\n    padding:20mm 20mm 18mm;position:relative;page-break-after:always;overflow:hidden;\n  }\n  .page:last-child{page-break-after:auto}\n\n  /* ---------- COVER ---------- */\n  .cover{background:var(--navy);color:var(--white);display:flex;flex-direction:column;justify-content:space-between;padding:30mm 20mm}\n  .cover .top{font-size:8pt;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}\n  .mark{display:flex;align-items:center;gap:3mm;margin:0 0 6mm}\n  .ring{width:11mm;height:11mm;flex:none}\n  .wordmark{font-size:23pt;font-weight:700;letter-spacing:-.01em;color:var(--gold);line-height:1}\n  .cover h1{font-size:26pt;line-height:1.16;font-weight:700;color:var(--white);margin:0 0 5mm;letter-spacing:-.005em}\n  .cover .sub{font-size:10.5pt;color:var(--dust);font-weight:400;max-width:105mm;line-height:1.6}\n  .rulegold{height:1px;background:var(--gold);opacity:.5;margin:8mm 0}\n  .cover .foot{font-size:7.5pt;letter-spacing:.24em;text-transform:uppercase;color:var(--meta);display:flex;justify-content:space-between}\n\n  /* ---------- BODY ---------- */\n  .hdr{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:2.5mm;margin-bottom:6mm}\n  .hdr .l{font-size:7pt;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}\n  .hdr .r{font-size:7pt;letter-spacing:.16em;text-transform:uppercase;color:var(--meta)}\n\n  h2.clause{\n    font-size:10pt;font-weight:700;color:var(--ink);margin:5mm 0 1.6mm;\n    letter-spacing:.02em;page-break-after:avoid\n  }\n  h2.clause:first-of-type{margin-top:0}\n  h2.clause .n{color:var(--gold);margin-right:2.5mm;font-weight:700}\n  p{font-size:9pt;line-height:1.55;margin:0 0 2.2mm;text-align:justify}\n  ul{margin:0 0 2.4mm;padding-left:5mm}\n  li{font-size:9pt;line-height:1.52;margin-bottom:1.1mm;text-align:justify}\n  .lead{font-size:9.4pt;color:var(--ink)}\n  .defined{font-weight:600;color:var(--ink)}\n\n  .partybox{border:1px solid var(--rule);border-left:2.5pt solid var(--gold);padding:4mm 5mm;margin:0 0 4.5mm;background:#FAFAF8}\n  .partybox .lbl{font-size:7pt;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.8mm}\n  .partybox p{margin-bottom:1.3mm;font-size:8.8pt;text-align:left}\n  .fill{display:inline-block;min-width:50mm;border-bottom:.75pt solid #9A968C;height:4.2mm}\n\n  .note{background:#FAF7EF;border:1px solid #E4D9BC;padding:3.5mm 4.5mm;margin:4.5mm 0;font-size:8.5pt;line-height:1.5;text-align:left}\n  .note b{color:var(--ink)}\n\n  .sigwrap{display:flex;gap:12mm;margin-top:6mm}\n  .sig{flex:1}\n  .sig .role{font-size:7pt;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5mm}\n  .sigline{border-bottom:.75pt solid #6E6D7E;height:15mm;margin-bottom:2mm}\n  .sig .cap{font-size:7.8pt;color:var(--meta);line-height:1.65}\n  .sig .cap b{color:var(--ink);font-weight:600}\n  .sigfield{border-bottom:.75pt solid #9A968C;height:4.6mm;margin:0 0 1.2mm}\n\n  .foot-note{position:absolute;bottom:10mm;left:20mm;right:20mm;border-top:1px solid var(--rule);padding-top:2.2mm;display:flex;justify-content:space-between;font-size:6.8pt;letter-spacing:.16em;text-transform:uppercase;color:var(--meta)}\n\n  @page{size:A4;margin:0}\n  @media print{\n    body{background:#fff}\n    .page{margin:0;box-shadow:none}\n    .cover,.partybox,.note{-webkit-print-color-adjust:exact;print-color-adjust:exact}\n  }\n  @media screen{\n    .page{box-shadow:0 2px 18px rgba(0,0,0,.28);margin-bottom:8mm}\n    body{padding:8mm 0}\n  }\n\n  .sigval{font-size:8.6pt;color:#15161C;font-weight:600;position:relative;top:3.4mm;padding-left:1mm}\n  #sigSlot{position:relative}\n  #sigSlot img{position:absolute;left:0;bottom:1mm;max-height:14mm;max-width:70%}\n  @media screen and (max-width:820px){\n    .page{width:auto;min-height:0;padding:24px 18px;margin:0 0 12px}\n    .sigwrap{display:block} .sig{width:auto;margin-bottom:20px}\n    .foot-note{position:static;margin-top:14px}\n  }\n  @media screen{ body{background:#565B6B;padding:16px 0} }\n</style>\n</head>\n<body>\n\n<!-- ============ COVER ============ -->\n<div class=\"page cover\">\n  <div><div class=\"top\">Confidential \u00b7 Participant Agreement</div></div>\n\n  <div>\n    <div class=\"mark\">\n      <svg class=\"ring\" viewBox=\"0 0 100 100\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\">\n        <path d=\"M50 6 A44 44 0 1 1 44.5 6.35\" stroke=\"#C9A961\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n        <circle cx=\"50\" cy=\"20\" r=\"6.5\" fill=\"#C9A961\"/>\n      </svg>\n      <span class=\"wordmark\">rthoCEO</span>\n    </div>\n    <h1>Mutual Confidentiality<br/>Agreement</h1>\n    <p class=\"sub\">Covering the closed-door sessions, the shared benchmark and every figure disclosed at the OrthoCEO Mastermind, Madrid, 24 to 26 September 2026.</p>\n    <div class=\"rulegold\"></div>\n    <p class=\"sub\" style=\"font-size:9pt\">The room only works if what is said in it can be said freely. This agreement is what makes that possible.</p>\n  </div>\n\n  <div class=\"foot\">\n    <span>OrthoCEO \u00b7 Mastermind \u00b7 Madrid</span>\n    <span>Private Edition \u00b7 2026</span>\n  </div>\n</div>\n\n<!-- ============ PAGE 2 ============ -->\n<div class=\"page\">\n  <div class=\"hdr\"><span class=\"l\">Mutual Confidentiality Agreement</span><span class=\"r\">OrthoCEO Mastermind 2026</span></div>\n\n  <p class=\"lead\">This Mutual Confidentiality Agreement (the <span class=\"defined\">\"Agreement\"</span>) is entered into on the date of the last signature below, between:</p>\n\n  <div class=\"partybox\">\n    <div class=\"lbl\">The Organiser</div>\n    <p><b>SONRE\u00cdR ES VIVIR, S.L.</b>, a company incorporated under the laws of Spain, with registered office at Calle San Nicol\u00e1s 9, 3\u00ba, 30005 Murcia, Spain, and tax identification number (CIF) B-67737031, which operates the <b>OrthoCEO</b> brand and acts as organiser of the OrthoCEO Mastermind, represented by <b>Dr. Javier Lozano Zafra</b> in his capacity as sole director (<i>Administrador \u00danico</i>), with sufficient powers to enter into this Agreement on its behalf.</p>\n  </div>\n\n  <div class=\"partybox\">\n    <div class=\"lbl\">The Participant</div>\n    <p>Name: <span class=\"fill\" id=\"f_name\"></span></p>\n    <p>Practice / company: <span class=\"fill\" id=\"f_practice\"></span></p>\n    <p>Registered address: <span class=\"fill\" id=\"f_address\"></span></p>\n    <p>Tax ID / passport no.: <span class=\"fill\" id=\"f_taxid\"></span> &nbsp; Email: <span class=\"fill\" id=\"f_email\"></span></p>\n  </div>\n\n  <p>The Organiser and the Participant are referred to individually as a <span class=\"defined\">\"Party\"</span> and together as the <span class=\"defined\">\"Parties\"</span>. Each Party may act both as a discloser and as a recipient of Confidential Information, and the obligations set out below apply to each of them in both capacities.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">1.</span>Background and purpose</h2>\n  <p>The OrthoCEO Mastermind (the <span class=\"defined\">\"Event\"</span>) is a private, invitation-only meeting of orthodontic practice owners held in Madrid on 24 to 26 September 2026. Its value rests on candour: participants disclose real operating and financial figures from their own practices so that those figures can be examined openly, compared against a common benchmark and discussed from several professional and commercial perspectives.</p>\n  <p>The Parties accordingly wish to define how that information may be used, and to ensure it is neither disclosed outside the Event nor exploited for any purpose other than the one set out here (the <span class=\"defined\">\"Purpose\"</span>): participation in the discussions, the collective analysis of the information disclosed, and the application by each participant of the resulting learning within their own practice.</p>\n\n  <div class=\"foot-note\"><span>OrthoCEO \u00b7 Mastermind \u00b7 Madrid</span><span>Page 2 of 5</span></div>\n</div>\n\n<!-- ============ PAGE 3 ============ -->\n<div class=\"page\">\n  <div class=\"hdr\"><span class=\"l\">Mutual Confidentiality Agreement</span><span class=\"r\">OrthoCEO Mastermind 2026</span></div>\n\n  <h2 class=\"clause\"><span class=\"n\">2.</span>Confidential Information</h2>\n  <p><span class=\"defined\">\"Confidential Information\"</span> means any non-public information disclosed before, during or after the Event, in any form, whether or not marked as confidential, including in particular:</p>\n  <ul>\n    <li>operating and financial figures of a practice, such as revenue, case volumes, average case value, marketing investment, conversion and recovery rates, margins and any benchmark submission;</li>\n    <li>commercial strategy, pricing, supplier and laboratory terms, acquisition channels, internal systems, protocols and team structure;</li>\n    <li>anything presented or said during the sessions, including hot-seat presentations, questions and the discussion around them;</li>\n    <li>the materials supplied by the Organiser, including the dossier, benchmark reports and session documentation;</li>\n    <li>the identity of the other participants and the composition of the room.</li>\n  </ul>\n\n  <h2 class=\"clause\"><span class=\"n\">3.</span>Exclusions</h2>\n  <p>Confidential Information does not include information which: (a) is or becomes public other than through a breach of this Agreement; (b) was lawfully in the receiving Party's possession, free of any duty of confidence, before disclosure; (c) is lawfully received from a third party entitled to disclose it; or (d) is independently developed without use of the Confidential Information. The burden of proving any exclusion rests with the Party invoking it.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">4.</span>Undertakings of the Parties</h2>\n  <p>Each Party undertakes to: (a) use the Confidential Information solely for the Purpose; (b) keep it strictly confidential and not disclose it to any third party without the prior written consent of the disclosing Party; (c) protect it with at least the same degree of care it applies to its own confidential information, and in no case less than reasonable care; and (d) disclose it internally only to those members of its team who need to know it for the Purpose and who are bound by equivalent duties of confidence.</p>\n  <p>Each Party further undertakes not to use the Confidential Information to obtain a commercial advantage over another participant, to solicit their clients, or to approach their suppliers on the strength of terms learned at the Event.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">5.</span>Use of learning: the Chatham House rule</h2>\n  <p>Participants are free to apply within their own practice the ideas, methods and insights gained at the Event. They may refer to what was learned, but never to who said it, nor to any detail capable of identifying the practice or person concerned. Nothing may be attributed, quoted or reproduced outside the room without the prior written consent of the person concerned.</p>\n\n  <div class=\"foot-note\"><span>OrthoCEO \u00b7 Mastermind \u00b7 Madrid</span><span>Page 3 of 5</span></div>\n</div>\n\n<!-- ============ PAGE 4 ============ -->\n<div class=\"page\">\n  <div class=\"hdr\"><span class=\"l\">Mutual Confidentiality Agreement</span><span class=\"r\">OrthoCEO Mastermind 2026</span></div>\n\n  <h2 class=\"clause\"><span class=\"n\">6.</span>Recording and publication</h2>\n  <p>No audio recording, video recording, photograph, screen capture or transcript of the working sessions may be made without the prior written consent of the Organiser and of the participants concerned. Confidential Information may not be published or shared on social media, in professional forums, in teaching materials or in any other public medium.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">7.</span>Aggregated benchmark and personal data</h2>\n  <p>The Organiser may consolidate the figures submitted by participants into an aggregated benchmark, provided it is stripped of names and of any element allowing a practice to be identified, and provided it is drawn from a sample large enough to prevent any figure being traced back to its source. That aggregated benchmark may be shared with the participants and used by the Organiser for the purposes of the Event and its future editions.</p>\n  <p>Personal data will be processed by the Organiser as data controller, in accordance with Regulation (EU) 2016/679 (GDPR) and applicable Spanish data protection law, solely to organise the Event and prepare the benchmark. Data will be retained for the term of this Agreement and the applicable limitation periods. The Participant may exercise their rights of access, rectification, erasure, restriction, portability and objection by writing to grow@orthoceo.info.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">8.</span>No warranty and no advice</h2>\n  <p>The information exchanged is shared for discussion and educational purposes. It is provided \"as is\", without warranty of accuracy or completeness, and constitutes neither professional, financial nor investment advice. Each Party remains solely responsible for its own business decisions. No licence over any intellectual property right is granted by this Agreement.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">9.</span>Term</h2>\n  <p>This Agreement takes effect on signature and the duties of confidence survive for <b>three (3) years</b> from the close of the Event. Information qualifying as a trade secret under Spanish Law 1/2019 remains protected for as long as it retains that status.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">10.</span>Return or destruction</h2>\n  <p>On written request by the disclosing Party, and in any event on expiry of this Agreement, the receiving Party shall return or destroy the Confidential Information in its possession, save for copies it is required to retain by law or under its internal backup policies, which remain subject to the duties of confidence set out here.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">11.</span>Required disclosure</h2>\n  <p>Where a Party is compelled by law, by a court or by a competent authority to disclose Confidential Information, it shall, to the extent legally permitted, notify the disclosing Party without delay so that the latter may seek protective measures, and shall disclose only what is strictly required.</p>\n\n  <div class=\"foot-note\"><span>OrthoCEO \u00b7 Mastermind \u00b7 Madrid</span><span>Page 4 of 5</span></div>\n</div>\n\n<!-- ============ PAGE 5 ============ -->\n<div class=\"page\">\n  <div class=\"hdr\"><span class=\"l\">Mutual Confidentiality Agreement</span><span class=\"r\">OrthoCEO Mastermind 2026</span></div>\n\n  <h2 class=\"clause\"><span class=\"n\">12.</span>Breach and remedies</h2>\n  <p>The Parties acknowledge that a breach of this Agreement may cause harm that damages alone cannot adequately repair, and that the injured Party is therefore entitled to seek injunctive relief and any other precautionary measure, without prejudice to compensation for the loss suffered.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">13.</span>General</h2>\n  <p>This Agreement constitutes the entire understanding between the Parties as to its subject matter. Any amendment must be in writing and signed by both Parties. If any provision is held invalid, the remainder continues in force. Failure to enforce a right does not amount to a waiver of it. This Agreement may not be assigned without the prior written consent of the other Party.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">14.</span>Governing law and dispute resolution</h2>\n  <p>This Agreement is governed by Spanish law. Any dispute arising out of or in connection with it shall be finally settled by arbitration administered by the Madrid Court of Arbitration (<i>Corte de Arbitraje de Madrid</i>), before a single arbitrator, with seat in Madrid and conducted in English. The award shall be final and binding on the Parties and may be recognised and enforced before any competent court, in accordance with the 1958 New York Convention.</p>\n  <p>Nothing in this clause prevents either Party from applying to any competent court for urgent interim or protective measures, in particular to halt a disclosure that is under way or imminent.</p>\n\n  <h2 class=\"clause\"><span class=\"n\">15.</span>Electronic signature</h2>\n  <p>The Parties agree that this Agreement may be signed electronically, and that an electronic signature has the same validity and evidential value as a handwritten one under Regulation (EU) 910/2014 (eIDAS) and Spanish Law 6/2020. Signature may be executed in counterparts, each of which is deemed an original.</p>\n\n  <div class=\"note\"><b>How to sign.</b> Use the <b>Sign the agreement</b> button at the bottom of this window. It takes under a minute from your phone. If you would rather sign by hand, print this document, sign it and return a scanned copy to grow@orthoceo.info.</div>\n\n  <div class=\"sigwrap\">\n    <div class=\"sig\">\n      <div class=\"role\">For the Organiser</div>\n      <div class=\"sigline\"></div>\n      <div class=\"cap\"><b>Dr. Javier Lozano Zafra</b><br/>Founder and Chief Executive Officer \u00b7 OrthoCEO<br/>Sole Director, for and on behalf of Sonre\u00edr Es Vivir, S.L.<br/>Date: <span style=\"border-bottom:.5pt solid #9A968C;display:inline-block;min-width:26mm\">&nbsp;</span></div>\n    </div>\n    <div class=\"sig\">\n      <div class=\"role\">The Participant</div>\n      <div class=\"sigline\" id=\"sigSlot\"></div>\n      <div class=\"cap\">\n        <div class=\"sigfield\"><span class=\"sigval\" id=\"s_name\"></span></div>Full name<br/>\n        <div class=\"sigfield\" style=\"margin-top:2.6mm\"><span class=\"sigval\" id=\"s_practice\"></span></div>Practice / company<br/>\n        <div class=\"sigfield\" style=\"margin-top:2.6mm\"><span class=\"sigval\" id=\"s_date\"></span></div>Date\n      </div>\n    </div>\n  </div>\n\n  <div class=\"foot-note\"><span>OrthoCEO \u00b7 Mastermind \u00b7 Madrid</span><span>Page 5 of 5</span></div>\n</div>\n\n</body>\n</html>\n";
 
 (function(){
-  var p = new URLSearchParams(location.search);
+  var $ = function(id){ return document.getElementById(id); };
+  var qp = new URLSearchParams(location.search);
+  var KEY = 'orthoceo_nda_v1';
 
-  // Personalización: ?name=Sinem
-  var name = p.get('name');
-  if (name) {
-    document.getElementById('greeting').textContent =
-      name.charAt(0).toUpperCase() + name.slice(1) + ',';
-  }
+  /* --- saludo personalizado: ?name=Melina --- */
+  var who = qp.get('name');
+  if(who){ $('greeting').textContent = who.charAt(0).toUpperCase() + who.slice(1) + ','; }
 
-  // Los links admiten override por URL y arrastran el nombre
-  function build(base, override){
-    var url = p.get(override) || base;
-    if (name) { url += (url.indexOf('?') > -1 ? '&' : '?') + 'name=' + encodeURIComponent(name); }
-    return url;
+  /* --- benchmark --- */
+  var bu = qp.get('bench') || BENCHMARK_URL;
+  if(who){ bu += (bu.indexOf('?') > -1 ? '&' : '?') + 'name=' + encodeURIComponent(who); }
+  $('benchBtn').href = bu;
+
+  /* --- documento dentro del iframe --- */
+  var frame = $('ndaFrame'), fdoc = null, loaded = false;
+  function loadDoc(cb){
+    if(loaded){ cb && cb(); return; }
+    frame.srcdoc = NDA_HTML;
+    frame.onload = function(){
+      fdoc = frame.contentDocument; loaded = true;
+      var s = saved(); if(s) applyToDoc(s);
+      cb && cb();
+    };
   }
-  document.getElementById('ndaBtn').href   = build(NDA_URL, 'nda');
-  document.getElementById('benchBtn').href = build(BENCHMARK_URL, 'bench');
+  function openReader(){ $('reader').classList.add('on'); loadDoc(); }
+  $('openNda').onclick = openReader;
+  $('reopenNda').onclick = openReader;
+  $('closeReader').onclick = function(){ $('reader').classList.remove('on'); };
+  $('printNda').onclick = function(){ frame.contentWindow.focus(); frame.contentWindow.print(); };
+
+  /* --- lienzo de firma --- */
+  var pad = $('pad'), ctx = pad.getContext('2d'), drawn = false, drawing = false, last = null;
+  function fitPad(){
+    var r = pad.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+    var prev = drawn ? pad.toDataURL() : null;
+    pad.width = Math.round(r.width*d); pad.height = Math.round(r.height*d);
+    ctx.setTransform(d,0,0,d,0,0);
+    ctx.lineWidth = 2.2; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.strokeStyle='#15161C';
+    if(prev){ var im = new Image(); im.onload=function(){ ctx.drawImage(im,0,0,r.width,r.height); }; im.src=prev; }
+  }
+  function pt(e){ var r=pad.getBoundingClientRect(), t=(e.touches&&e.touches[0])?e.touches[0]:e;
+    return {x:t.clientX-r.left, y:t.clientY-r.top}; }
+  ['mousedown','touchstart'].forEach(function(ev){ pad.addEventListener(ev,function(e){
+    e.preventDefault(); drawing=true; last=pt(e); },{passive:false}); });
+  ['mousemove','touchmove'].forEach(function(ev){ pad.addEventListener(ev,function(e){
+    if(!drawing) return; e.preventDefault(); var p=pt(e);
+    ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(p.x,p.y); ctx.stroke();
+    last=p; drawn=true; pad.classList.remove('bad'); },{passive:false}); });
+  ['mouseup','mouseleave','touchend','touchcancel'].forEach(function(ev){
+    pad.addEventListener(ev,function(){ drawing=false; }); });
+  $('clrBtn').onclick = function(){ ctx.clearRect(0,0,pad.width,pad.height); drawn=false; };
+  window.addEventListener('resize', function(){ if($('ov').classList.contains('on')) fitPad(); });
+
+  /* --- abrir / cerrar panel --- */
+  $('signOpen').onclick = function(){
+    if(who && !$('i_name').value) $('i_name').value = who;
+    if(qp.get('email') && !$('i_email').value) $('i_email').value = qp.get('email');
+    $('ov').classList.add('on'); setTimeout(fitPad,40);
+  };
+  $('cancelBtn').onclick = function(){ $('ov').classList.remove('on'); };
+  $('ov').addEventListener('click', function(e){ if(e.target===$('ov')) $('ov').classList.remove('on'); });
+
+  /* --- estado guardado --- */
+  function saved(){ try{ return JSON.parse(localStorage.getItem(KEY)); }catch(e){ return null; } }
+  function applyToDoc(d){
+    if(!fdoc) return;
+    var set = function(id,v){ var el = fdoc.getElementById(id); if(el) el.textContent = v || ''; };
+    set('f_name',d.name); set('f_practice',d.practice); set('f_address',d.address);
+    set('f_taxid',d.taxid); set('f_email',d.email);
+    set('s_name',d.name); set('s_practice',d.practice); set('s_date',d.date);
+    var slot = fdoc.getElementById('sigSlot');
+    if(slot && d.sig && !slot.querySelector('img')){
+      var im = fdoc.createElement('img'); im.src = d.sig; slot.appendChild(im);
+    }
+  }
+  function markDone(d){
+    $('ndaDoneTxt').textContent = 'Signed on ' + d.date;
+    $('ndaDone').classList.add('on');
+    $('openNda').style.display = 'none';
+    $('rMsg').textContent = 'Signed by ' + d.name + ' on ' + d.date;
+    $('rMsg').className = 'msg ok';
+    $('signOpen').style.display = 'none';
+  }
+  var pre = saved(); if(pre) markDone(pre);
+
+  /* --- firmar --- */
+  function fail(msg, el){ var e=$('err'); e.textContent=msg; e.classList.add('on');
+    if(el){ el.classList.add('bad'); el.focus(); } }
+
+  $('signBtn').onclick = function(){
+    $('err').classList.remove('on');
+    ['i_name','i_practice','i_address','i_taxid','i_email'].forEach(function(id){ $(id).classList.remove('bad'); });
+    pad.classList.remove('bad');
+
+    var v = {};
+    ['name','practice','address','taxid','email'].forEach(function(k){ v[k]=$('i_'+k).value.trim(); });
+    if(!v.name)     return fail('Please enter your full name.', $('i_name'));
+    if(!v.practice) return fail('Please enter your practice or company.', $('i_practice'));
+    if(!v.email || v.email.indexOf('@') < 1) return fail('Please enter a valid email address.', $('i_email'));
+    if(!drawn){ pad.classList.add('bad'); return fail('Please draw your signature in the box.'); }
+    if(!$('i_agree').checked) return fail('Please confirm that you agree to the terms.');
+
+    var now = new Date();
+    v.date = String(now.getDate()).padStart(2,'0') + '/' +
+             String(now.getMonth()+1).padStart(2,'0') + '/' + now.getFullYear();
+    v.sig = pad.toDataURL('image/png');
+
+    applyToDoc(v);
+    markDone(v);
+    try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){}
+
+    var ok = /^https:\/\/script\.google\.com\//.test(SIGN_ENDPOINT);
+    if(ok){
+      fetch(SIGN_ENDPOINT,{method:'POST',mode:'no-cors',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({
+          form:'nda', full_name:v.name, practice:v.practice, address:v.address,
+          tax_id:v.taxid, email:v.email, signed_at:now.toISOString(), signed_date:v.date,
+          user_agent:navigator.userAgent, signature_png:v.sig })
+      }).catch(function(){});
+    } else {
+      $('doneMsg').textContent = 'Your signature has been applied to the agreement. ' +
+        'Download your copy below and send it to grow@orthoceo.info.';
+    }
+
+    $('formStep').style.display = 'none';
+    $('doneStep').style.display = 'block';
+  };
+
+  $('closeDone').onclick = function(){ $('ov').classList.remove('on'); };
+  $('dlBtn').onclick = function(){
+    $('ov').classList.remove('on');
+    setTimeout(function(){ frame.contentWindow.focus(); frame.contentWindow.print(); }, 300);
+  };
 })();
 </script>
-
 </body>
 </html>
