@@ -219,7 +219,7 @@
 
 <script>
   /* ====== CONFIG: pega aquí la URL /exec de tu Apps Script (paso de despliegue) ====== */
-  var SHEET_ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOTogHdnoJETv2mWDpzc86fnnWW1sydNVdStikF__2jQILL0sdjCd1rmGWOf3W6k0A0w/exec';
   /* ================================================================================= */
 
   var LS_KEY = 'ortho_benchmark_v1';
@@ -299,15 +299,11 @@
     if(!ENDPOINT_OK) return Promise.reject(new Error('endpoint-not-configured'));
     return fetch(SHEET_ENDPOINT, {
       method:'POST',
-      headers:{'Content-Type':'text/plain;charset=utf-8'}, // simple request: sin preflight CORS
+      mode:'no-cors', // el POST llega y se procesa; evita falsos errores de CORS al leer la respuesta
+      headers:{'Content-Type':'text/plain;charset=utf-8'}, // simple request: sin preflight
       body: JSON.stringify(payload),
       redirect:'follow'
-    }).then(function(res){
-      return res.text().then(function(t){
-        try{ var j=JSON.parse(t); if(j && j.ok===false) throw new Error(j.error||'server-error'); }catch(_){}
-        return true;
-      });
-    });
+    }).then(function(){ return true; });
   }
   function flushOutbox(){
     var q; try{ q = JSON.parse(localStorage.getItem(OUTBOX))||[]; }catch(e){ q=[]; }
