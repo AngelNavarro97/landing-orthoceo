@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two things before Madrid — OrthoCEO Mastermind</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A0E1C;
+  --gold:#B8974A;
+  --gold-bright:#C9A961;
+  --gold-soft:#F7F2E4;
+  --gold-line:rgba(184,151,74,.35);
+  --page:#EDEDF0;
+  --card:#FFFFFF;
+  --ink:#15161C;
+  --body:#3E4049;
+  --muted:#71737E;
+  --line:rgba(21,22,28,.10);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --page:#05070F; }
+}
+:root[data-theme="dark"]{ --page:#05070F; }
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--page);
+  font-family:Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--body);
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  padding:28px 16px 56px;
+}
+.card{
+  max-width:660px;margin:0 auto;background:var(--card);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 18px 60px rgba(10,14,28,.16);
+}
+
+/* ---------- header ---------- */
+.head{background:var(--navy);padding:34px 24px 30px;text-align:center}
+.mark{display:inline-flex;align-items:center;gap:11px}
+.mark svg{width:30px;height:30px;flex:none}
+.mark .word{font-size:26px;font-weight:700;color:var(--gold-bright);letter-spacing:-.01em}
+.head .strap{margin:14px 0 0;font-size:10.5px;letter-spacing:.30em;text-transform:uppercase;color:rgba(201,169,97,.72);font-weight:600}
+
+/* ---------- body ---------- */
+.inner{padding:40px 44px 36px}
+@media(max-width:560px){ .inner{padding:30px 24px 28px} body{padding:14px 10px 40px} }
+
+.hi{font-size:19px;font-weight:700;color:var(--ink);margin:0 0 22px}
+p{margin:0 0 18px;font-size:15px}
+.lead{color:var(--body)}
+
+.step{border-top:1px solid var(--line);padding-top:26px;margin-top:8px}
+.step:first-of-type{margin-top:26px}
+.klabel{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:0 0 10px}
+.step h2{font-size:19px;font-weight:700;color:var(--ink);margin:0 0 12px;letter-spacing:-.01em}
+
+.btn{
+  display:inline-block;background:linear-gradient(180deg,var(--gold-bright),var(--gold));
+  color:#1A1305;text-decoration:none;font-weight:700;font-size:14.5px;
+  padding:15px 30px;border-radius:999px;margin:6px 0 26px;
+  transition:filter .18s, transform .12s;
+}
+.btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+
+.note{
+  background:var(--gold-soft);border:1px solid var(--gold-line);
+  border-radius:10px;padding:20px 22px;margin:6px 0 26px;font-size:14px;
+}
+.note p{margin:0;font-size:14px}
+.note b{color:var(--ink);font-weight:700}
+
+.sign{border-top:1px solid var(--line);padding-top:24px;margin-top:6px}
+.sign .who{font-size:15.5px;font-weight:700;color:var(--ink)}
+.sign .role{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* ---------- footer ---------- */
+.foot{
+  background:var(--navy);text-align:center;padding:20px 22px;
+  font-size:9.5px;letter-spacing:.20em;text-transform:uppercase;
+  color:rgba(244,243,248,.42);line-height:1.8;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="head">
+    <div class="mark">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M50 6 A44 44 0 1 1 44.5 6.35" stroke="#C9A961" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="50" cy="20" r="6.5" fill="#C9A961"/>
+      </svg>
+      <span class="word">rthoCEO</span>
+    </div>
+    <p class="strap">Mastermind &middot; Madrid &middot; 2026</p>
+  </div>
+
+  <div class="inner">
+
+    <p class="hi" id="greeting">Welcome,</p>
+
+    <p class="lead">Your seat at the table is confirmed, and it is a pleasure to have you in the room.</p>
+
+    <p class="lead">Before we meet in Madrid on 24 to 26 September, there are two things to take care of.
+      Neither takes long, and both exist for the same reason: to make those two days genuinely worth your time.</p>
+
+    <div class="step">
+      <p class="klabel">01 &middot; First</p>
+      <h2>The confidentiality agreement</h2>
+      <p>What sets this room apart is that people speak plainly about their real numbers. That only happens
+        when everyone knows those figures stay between us. The agreement protects you exactly as much as it
+        protects everyone else. Thirty seconds from your phone, nothing to install.</p>
+      <a class="btn" id="ndaBtn" href="#">Review and sign &rarr;</a>
+    </div>
+
+    <div class="step">
+      <p class="klabel">02 &middot; Then</p>
+      <h2>Your benchmark</h2>
+      <p>Ahead of the sessions we build a private benchmark of the room, so the conversations run on real
+        figures instead of opinions. It takes about five minutes. Your answers save as you go, so you can
+        pause and come back whenever it suits you. Everything is aggregated and anonymised, and you get the
+        full picture back: you will see exactly where your practice stands among peers at your level.</p>
+      <a class="btn" id="benchBtn" href="#">Complete my benchmark &rarr;</a>
+    </div>
+
+    <div class="step">
+      <p>Once we have both, we will send you the hotel page, your arrival details and the final programme.</p>
+
+      <div class="note">
+        <p>One thing worth knowing about the hotel. Late September is a busy stretch in Madrid, so we reserved
+          a block of rooms at the Meli&aacute; Serrano well in advance, at a rate we negotiated for the group.
+          <b>Yours is already held in your name.</b> The page is simply there for you to finalise it, set your
+          nights and confirm. Nothing to hunt for, nothing to negotiate, and no risk of the city filling up
+          around you.</p>
+      </div>
+
+      <p>If anything at all comes up, write to me directly. I am here for whatever you need.</p>
+      <p>Looking forward to Madrid.</p>
+    </div>
+
+    <div class="sign">
+      <div class="who">Miguel &Aacute;ngel</div>
+      <div class="role">OrthoCEO Mastermind<br>On behalf of Dr. Javi Lozano</div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    OrthoCEO Mastermind &middot; Madrid &middot; 24 to 26 September 2026<br>Hotel Meli&aacute; Serrano
+  </div>
+
+</div>
+
+<script>
+/* ==== LINKS: sustituir por las URLs reales ==== */
+var NDA_URL       = 'https://orthoceo.info/nda';
+var BENCHMARK_URL = 'https://orthoceo.info/benchmark';
+/* ============================================= */
+
+(function(){
+  var p = new URLSearchParams(location.search);
+
+  // Personalización: ?name=Sinem
+  var name = p.get('name');
+  if (name) {
+    document.getElementById('greeting').textContent =
+      name.charAt(0).toUpperCase() + name.slice(1) + ',';
+  }
+
+  // Los links admiten override por URL y arrastran el nombre
+  function build(base, override){
+    var url = p.get(override) || base;
+    if (name) { url += (url.indexOf('?') > -1 ? '&' : '?') + 'name=' + encodeURIComponent(name); }
+    return url;
+  }
+  document.getElementById('ndaBtn').href   = build(NDA_URL, 'nda');
+  document.getElementById('benchBtn').href = build(BENCHMARK_URL, 'bench');
+})();
+</script>
+
+</body>
+</html>
